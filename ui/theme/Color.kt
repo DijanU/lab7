@@ -1,11 +1,11 @@
-package com.example.lab_7.ui.theme
+package com.example.lab7.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val Blue80 = Color(0xFFAEDFF7)
+val GreenGrey80 = Color(0xFFB7D8C8)
+val Orange80 = Color(0xFFFFD1A3)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val Blue40 = Color(0xFF4A90E2)
+val GreenGrey40 = Color(0xFF6A8570)
+val Orange40 = Color(0xFFEB8754)

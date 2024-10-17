@@ -1,16 +1,26 @@
-package com.example.lab_7.ui.mealdetail.repository
+package com.example.lab7.ui.mealdetail.repository
 
-import com.example.lab_7.networking.response.MealApiService
-import com.example.lab_7.networking.response.RetrofitInstance
-
-package com.example.lab_7.ui.mealdetail.repository
-import com.example.lab_7.ui.mealdetail.model.MealDetail
+import com.example.lab7.networking.MealsWebService
+import com.example.lab7.networking.response.MealResponseLookup
+import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
-class MealDetailRepository {
-    private val apiService: MealApiService = RetrofitInstance.api
+class MealDetailRepository(private val webService: MealsWebService= MealsWebService()) {
+    fun getMealById(mealId: String, successCallback: (response: MealResponseLookup?) -> Unit){
+        return webService.getMealById(mealId).enqueue(object: Callback<MealResponseLookup>{
+            override fun onResponse(
+                call: Call<MealResponseLookup>,
+                response: Response<MealResponseLookup>
+            ){
+                if (response.isSuccessful)
+                    successCallback(response.body())
+            }
 
-    suspend fun getMealDetails(mealId: String): Response<MealDetail> {
-        return apiService.getMealDetails(mealId)
+            override fun onFailure(call: Call<MealResponseLookup>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+        }
+        )
     }
 }
